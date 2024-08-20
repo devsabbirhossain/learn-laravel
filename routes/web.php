@@ -16,3 +16,14 @@ Route::get( '/dashboard', [DashboardController::class, 'dashboard'] );
 */
 //Route::get( '/dashboard/profile/{id}', [DashboardController::class, 'profile'] );
 Route::get( '/dashboard/profile/{id?}', [DashboardController::class, 'profile'] );
+
+// Post Route.
+Route::post( '/add', [DashboardController::class, 'addProfile'] );
+
+
+// File Upload Route.
+Route::post( '/upload-file', [DashboardController::class, 'uploadFiles'] );
+
+// API Route.
+Route::post( '/api', [DashboardController::class, 'getApi'] );
+
