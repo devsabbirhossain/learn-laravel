@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -55,8 +56,24 @@ class DashboardController extends Controller
         );
     }
 
-    function getApi( Request $request ) {
+    function contentType( Request $request ) {
+        if( $request->accepts(['application/json']) ){
+            return array( 'message' => 'Acceptable' );
+        } else {
+            return array( 'message' => 'Not Acceptable' );
+        }
+//        return $request->getAcceptableContentTypes();
+    }
 
-        return $request->ip();
+    function setCookies( Request $request ) {
+        $cookieName = "pluginmagnet";
+        $value = 'username';
+        $duration = 3600;
+        $path = '/';
+        $domain = $_SERVER['SERVER_NAME'];
+        $secure = true;
+        $httponly = true;
+//        return $request->cookie();
+        return response('Home Page' )->cookie( $cookieName, $value, $duration, $path, $domain, $secure, $httponly );
     }
 }

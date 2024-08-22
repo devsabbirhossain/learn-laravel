@@ -25,5 +25,7 @@ Route::post( '/add', [DashboardController::class, 'addProfile'] );
 Route::post( '/upload-file', [DashboardController::class, 'uploadFiles'] );
 
 // API Route.
-Route::post( '/api', [DashboardController::class, 'getApi'] );
+Route::post( '/contentType', [DashboardController::class, 'contentType'] );
 
+// Cookie Route.
+Route::post( '/setCookies', [DashboardController::class, 'setCookies'] );
